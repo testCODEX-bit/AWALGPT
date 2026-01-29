@@ -1,0 +1,278 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --container-screen-xl: 75rem;
+  --container-screen-2xl: 83.75rem;
+
+  --shadow-cause-shadow: 0px 4px 17px 0px #00000008;
+  --shadow-linckedin: 0px 19px 30px 0px #00000033;
+  --shadow-manage-shadow: 0px 4px 5px 1px #c1c1c159;
+  --shadow-testimonial: 0px 5px 10px 0px #5968760d;
+
+  --transition-duration-150: 150ms;
+
+  --spacing-25: 35.625rem;
+  --spacing-29: 28rem;
+  --spacing-45: 45rem;
+  --spacing-50: 50rem;
+  --spacing-51: 54.375rem;
+  --spacing-85: 21rem;
+  --spacing-94: 22.5rem;
+  --spacing-120: 120rem;
+  --spacing-6_25: 6.25rem;
+  --spacing-70\%: 70%;
+  --spacing-40\%: 40%;
+  --spacing-30\%: 30%;
+  --spacing-80\%: 80%;
+  --spacing-8_5: 8.5rem;
+  --spacing-3_75: 3.75rem;
+
+  --inset-5\%: 5%;
+  --inset-35\%: 35%;
+
+  --z-index-1: 1;
+  --z-index-2: 2;
+  --z-index-999: 999;
+
+  /* COULEURS ROUGE AMAZIGH */
+  --color-primary: #e10916;
+  /* Rouge Amazigh vif */
+  --color-secondary: #f8b195;
+  /* Rouge orangé clair */
+  --color-accent: #e10916;
+  /* Rouge foncé */
+  --color-dark: #2c3e50;
+  /* Bleu foncé pour contraste */
+  --color-light: #f9f5f0;
+  /* Beige clair */
+  --color-purple: #e10916;
+  /* Rouge bordeaux */
+  --color-grey: #f5f5f5;
+  --color-border: #e0e0e0;
+  --color-darkmode: #1a1a1a;
+  --color-deep-slate: #2c1810;
+  /* Brun rougeâtre */
+
+  --text-80: 5rem;
+  --text-65: 4.063rem;
+
+  --blur-220: 220px;
+  --blur-400: 400px;
+
+  --background-image-faq-bg: url('/images/swirl.png');
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  section {
+    @apply py-20;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-[#2c1810];
+    /* Couleur texte principale */
+  }
+
+  h1 {
+    @apply text-6xl sm:text-80 font-bold sm:leading-24 leading-20;
+  }
+
+  h2 {
+    @apply text-5xl lg:text-65 font-bold;
+  }
+
+  h3 {
+    @apply text-4xl lg:text-6xl font-semibold;
+  }
+
+  h4 {
+    @apply text-3xl lg:text-4xl font-semibold;
+  }
+
+  h5 {
+    @apply text-2xl font-semibold;
+  }
+
+  h6 {
+    @apply text-xl;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.bg-joinus {
+  background-image: url('/images/horn.svg'),
+    url('/images/paint.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: 90% 100%, 2% 18%;
+  background-color: var(--color-light);
+}
+
+/* Styles spécifiques Amazigh */
+.text-tifinagh {
+  font-family: 'Tifinagh', system-ui, sans-serif;
+}
+
+.bg-amazigh-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23c1272d' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+
+/* Ajouter ces styles à la fin de globals.css */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.hover-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.hover-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Tifinagh font classes */
+.tifinagh-char {
+  font-family: 'Tifinagh', sans-serif;
+  font-size: 1.2em;
+}
+
+/* Gradient backgrounds */
+.bg-gradient-amazigh {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+}
+
+.bg-gradient-light {
+  background: linear-gradient(135deg, #f9f5f0 0%, #1a1a1afff 100%);
+}
+
+/* Styles pour l'interface de chat */
+.message-enter {
+  animation: messageEnter 0.3s ease-out;
+}
+
+@keyframes messageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-accent));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--color-accent), var(--color-primary));
+}
+
+/* Animation de pulsation pour le typing indicator */
+@keyframes typing {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-typing {
+  animation: typing 1.4s ease-in-out infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Input focus styles */
+.input-focus:focus {
+  box-shadow: 0 0 0 3px rgba(193, 39, 45, 0.1);
+}
